@@ -1,12 +1,12 @@
 {
-  "name": "electron-quick-start",
+  "name": "MARElectron",
   "version": "1.0.0",
   "description": "A minimal Electron application",
   "main": "main.js",
   "scripts": {
     "start": "electron ."
   },
-  "repository": "https://github.com/electron/electron-quick-start",
+  "repository": "MARElectron",
   "keywords": [
     "Electron",
     "quick",
@@ -20,6 +20,7 @@
     "electron": "^3.0.4"
   },
   "dependencies": {
+    "axios": "^0.18.0",
     "electron-fetch": "^1.2.1",
     "electron-main-fetch": "^0.1.0"
   }
