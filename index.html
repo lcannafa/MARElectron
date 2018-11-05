@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>TestPage</title>
+  </head>
+  <body>
+    <h1 id= "titulo">Informes Ruteadora</h1>
+    <!-- All of the Node.js APIs are available in this renderer process. -->
+    <p id="expl">Tipos de reportes: Complejos y Sencillos</p>
+    <p id="expl2">Complejo : Contiene graficas y tablas con los datos de la ejecución</p>
+    <p id="expl3">Sencillo : Contiene graficas sobre la ejecución</p>
+    <button id="confirmador"> Enviar Confirmación</button>
+    <input id="comp" type="checkbox" name="complejidad" value="Complejo"> Complejo<br>
+
+    <script>
+      // You can also require other files to run in this process
+      require('./renderer.js')
+    </script>
+
+<script>
+ document.getElementById("confirmador").onclick = function(){
+      const { ipcRenderer } = require('electron');
+      var Mycheckbox = document.getElementById("comp");
+      var Data = "nulo";
+        // Some data that will be sent to the main process
+        if( Mycheckbox.checked == true){
+          Data = "complejo";
+        }
+        else{
+          Data = "sencillo";
+        }
+        // Trigger the event listener action to this event in the renderer process and send the data
+        ipcRenderer.send('confirm', Data);
+    };
+</script>
+</body>
+</html>
