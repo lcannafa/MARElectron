@@ -23,12 +23,6 @@ function createWindow() {
 
     mainWindow.loadFile('index.html')
 
-    /*
-    axios.get('https://machinear-node.herokuapp.com/api/variables')
-    .then(res => {
-        console.log(res.data);
-    });
-    */
 
     // Attach event listener in order to get the style of graphics the user requires
     ipcMain.on('confirm', (event, arg) => {
@@ -36,6 +30,10 @@ function createWindow() {
     
           console.log(arg);
           // Enviar simple u complejo
+          axios.get('https://machinear.herokuapp.com/1')
+        .then(res => {
+        console.log('dropbox1', res.data.about);
+        });
     
           // get url
           var urlreporte = "";
@@ -46,7 +44,10 @@ function createWindow() {
     
         console.log(arg);
         // Enviar simple u complejo
-  
+        axios.get('https://machinear.herokuapp.com/2')
+        .then(res => {
+        console.log('dropbox2', res.data.about);
+        });
         // get url
         var urlreporte = "";
         //download(mainWindow, urlreporte);
