@@ -32,7 +32,7 @@ function createWindow() {
           // Enviar simple u complejo
           axios.get('https://machinear.herokuapp.com/1')
         .then(res => {
-        console.log('dropbox1', res.data.about);
+        console.log(res);
         });
     
           // get url
@@ -46,14 +46,19 @@ function createWindow() {
         // Enviar simple u complejo
         axios.get('https://machinear.herokuapp.com/2')
         .then(res => {
-        console.log('dropbox2', res.data.about);
+        console.log(res);
         });
         // get url
         var urlreporte = "";
         //download(mainWindow, urlreporte);
      }
 
-       else{console.log(arg)}
+       else{console.log(arg);
+        // Enviar simple u complejo
+        axios.get('https://machinear.herokuapp.com/1')
+      .then(res => {
+      console.log(res.body.about);
+      });}
       });
 
 
