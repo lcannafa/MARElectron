@@ -76,9 +76,12 @@ app.on('ready', function() {
     setInterval(function(){
         axios.get('https://machinear-node.herokuapp.com/api/variables')
         .then(res => {
-        mainWindow.webContents.send('update', res.data);
+        mainWindow.webContents.send('volt', res.data.voltaje);
+        mainWindow.webContents.send('corriente', res.data.corriente);
+        mainWindow.webContents.send('y', res.data.y);
+        mainWindow.webContents.send('x', res.data.x);
         });
-    }, 1000);
+    }, 500);
 });
 
 // Quit when all windows are closed.

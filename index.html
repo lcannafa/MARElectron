@@ -12,11 +12,34 @@
     <p id="expl3">Sencillo : Contiene graficas sobre la ejecución</p>
     <button id="confirmador"> Enviar Confirmación</button>
     <input id="comp" type="checkbox" name="complejidad" value="Complejo"> Complejo<br>
+    
+
+      <div style="float:right">
+          <span class="firstLabel">firstlabel</span>
+          <label id="voltaje">ID:</label>
+
+      </div>
+
+      <div style="float:right">
+          <label id="corriente">ID:</label>
+
+      </div>
+
+      <div style="float:right">
+          <label id="y">ID:</label>
+
+      </div>
+
+      <div style="float:right">
+          <label id="x">ID:</label>
+
+      </div>
 
     <script>
       // You can also require other files to run in this process
       require('./renderer.js')
     </script>
+
 
 <script>
  document.getElementById("confirmador").onclick = function(){
@@ -35,9 +58,31 @@
     };
 </script>
 <script>
+// Script que recibe las variables de la ejecución actual
 var ipcRenderer = require('electron').ipcRenderer;
-ipcRenderer.on('update', function (event,store) {
-    console.log(store);
+
+//obtiene voltaje
+ipcRenderer.on('volt', function (event,store) {
+
+    document.getElementById("voltaje").innerHTML = store;
+});
+
+//obtiene corriente
+ipcRenderer.on('corriente', function (event,store) {
+
+    document.getElementById("corriente").innerHTML = store;
+});
+
+//obtiene y
+ipcRenderer.on('y', function (event,store) {
+
+    document.getElementById("y").innerHTML = store;
+});
+
+//obtiene x
+ipcRenderer.on('x', function (event,store) {
+
+    document.getElementById("x").innerHTML = store;
 });
 </script>
 
