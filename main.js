@@ -23,16 +23,16 @@ function createWindow() {
 
     mainWindow.loadFile('index.html')
 
-    
+    /*
     axios.get('https://machinear-node.herokuapp.com/api/variables')
     .then(res => {
         console.log(res.data);
     });
-    
+    */
 
     // Attach event listener in order to get the style of graphics the user requires
     ipcMain.on('confirm', (event, arg) => {
-        if(arg.message == "comp"){
+        if(arg.message == "complejo"){
     
           console.log(arg);
           // Enviar simple u complejo
@@ -41,6 +41,17 @@ function createWindow() {
           var urlreporte = "";
           //download(mainWindow, urlreporte);
        }
+
+       if(arg.message == "sencillo"){
+    
+        console.log(arg);
+        // Enviar simple u complejo
+  
+        // get url
+        var urlreporte = "";
+        //download(mainWindow, urlreporte);
+     }
+
        else{console.log(arg)}
       });
 
@@ -59,6 +70,16 @@ function createWindow() {
 // initialization and is ready to create browser windows.
 // Some APIs can only be used after this event occurs.
 app.on('ready', createWindow)
+
+// pone un ciclo para ejecutar el llamado
+app.on('ready', function() {
+    setInterval(function(){
+        axios.get('https://machinear-node.herokuapp.com/api/variables')
+        .then(res => {
+        mainWindow.webContents.send('update', res.data);
+        });
+    }, 1000);
+});
 
 // Quit when all windows are closed.
 app.on('window-all-closed', function () {
