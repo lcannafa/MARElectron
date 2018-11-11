@@ -51,10 +51,10 @@
       var Data = "nulo";
         // Some data that will be sent to the main process
         if( Mycheckbox.checked == true){
-          Data = "complejo";
+          Data = 1;
         }
         else{
-          Data = "sencillo";
+          Data = 2;
         }
         // Trigger the event listener action to this event in the renderer process and send the data
         ipcRenderer.send('confirm', Data);

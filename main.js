@@ -26,7 +26,7 @@ function createWindow() {
 
     // Attach event listener in order to get the style of graphics the user requires
     ipcMain.on('confirm', (event, arg) => {
-        if(arg.message == "complejo"){
+        if(arg.message == 1){
     
           console.log(arg);
           // Enviar simple u complejo
@@ -40,7 +40,7 @@ function createWindow() {
           //download(mainWindow, urlreporte);
        }
 
-       if(arg.message == "sencillo"){
+       if(arg.message == 0){
     
         console.log(arg);
         // Enviar simple u complejo
@@ -55,7 +55,8 @@ function createWindow() {
 
        else{console.log(arg);
         // Enviar simple u complejo
-        axios.get('https://machinear.herokuapp.com/1')
+      //window.alert("holo");
+      axios.get('https://machinear.herokuapp.com/1')
       .then(res => {
       console.log(res.body.about);
       });}
