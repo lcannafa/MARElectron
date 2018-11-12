@@ -1,4 +1,4 @@
-  <!DOCTYPE html>
+<!DOCTYPE html>
 <html>
   <head>
     <link rel="stylesheet" href="graphics.css">
@@ -48,7 +48,7 @@
           Data = 1;
         }
         else{
-          Data = 2;
+          Data = 0;
         }
         // Trigger the event listener action to this event in the renderer process and send the data
         ipcRenderer.send('confirm', Data);

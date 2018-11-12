@@ -13,21 +13,24 @@ const url = require('url')
 // Keep a global reference of the windows object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
 let mainWindow;
+let downloadWindow;
 
 
 function createWindow() {
     // Create the browser window.
     mainWindow = new BrowserWindow({ width: 600, height: 600 });
-
-
     mainWindow.loadFile('index.html')
 
 
     // Attach event listener in order to get the style of graphics the user requires
     ipcMain.on('confirm', (event, arg) => {
-        if(arg.data == 1){
+        var tipodeInforme;
+        tipodeInforme = JSON.stringify(arg);
+
+ 
+        if(tipodeInforme == "1"){
     
-        console.log("entra al 1");
+        //console.log("entra al 1");
           // Enviar simple u complejo
         axios.get('https://machinear.herokuapp.com/1')
         .then(res => {
@@ -35,13 +38,13 @@ function createWindow() {
         });
     
           // get url
-          var urlreporte = "";
-          //download(mainWindow, urlreporte);
+          //var urlreporte = JSON.stringify(res.link);
+
        }
 
-       if(arg.data == 0){
+       if(tipodeInforme == "0"){
     
-        console.log("entra al 2");
+        //console.log("entra al 0");
         // Enviar simple u complejo
         
         axios.get('https://machinear.herokuapp.com/0')
@@ -49,14 +52,13 @@ function createWindow() {
         console.log(res.data.about);
         });
         // get url
-        var urlreporte = "";
-        //download(mainWindow, urlreporte);
+        //var urlreporte = JSON.stringify(res.link);
+        
      }
-
-    else{
-      console.log("entra el else");
-      axios.get('https://machinear.herokuapp.com/1').then(response => {console.log(response.link);}).catch(error => {console.log(error.message);});
-     }
+     
+     downloadWindow = new BrowserWindow({ width: 800, height: 100 });
+     downloadWindow.loadFile('downloader.html')
+     //downloadWindow.webContents.send('link', urlreporte);
       });
 
 
@@ -67,6 +69,7 @@ function createWindow() {
         // in an array if your app supports multi windows, this is the time
         // when you should delete the corresponding element.
         mainWindow = null;
+
     })
 }
 
