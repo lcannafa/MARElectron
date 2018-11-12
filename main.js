@@ -1,5 +1,4 @@
 const electron = require('electron');
-const path = require('path');
 const { ipcMain } = require('electron');
 const axios = require('axios')
 
@@ -18,7 +17,7 @@ let mainWindow;
 
 function createWindow() {
     // Create the browser window.
-    mainWindow = new BrowserWindow({ width: 800, height: 600 });
+    mainWindow = new BrowserWindow({ width: 600, height: 600 });
 
 
     mainWindow.loadFile('index.html')
@@ -26,13 +25,13 @@ function createWindow() {
 
     // Attach event listener in order to get the style of graphics the user requires
     ipcMain.on('confirm', (event, arg) => {
-        if(arg.message == 1){
+        if(arg.data == 1){
     
-          console.log(arg);
+        console.log("entra al 1");
           // Enviar simple u complejo
-          axios.get('https://machinear.herokuapp.com/1')
+        axios.get('https://machinear.herokuapp.com/1')
         .then(res => {
-        console.log(res);
+        console.log(res.about);
         });
     
           // get url
@@ -40,26 +39,24 @@ function createWindow() {
           //download(mainWindow, urlreporte);
        }
 
-       if(arg.message == 0){
+       if(arg.data == 0){
     
-        console.log(arg);
+        console.log("entra al 2");
         // Enviar simple u complejo
-        axios.get('https://machinear.herokuapp.com/2')
+        
+        axios.get('https://machinear.herokuapp.com/0')
         .then(res => {
-        console.log(res);
+        console.log(res.data.about);
         });
         // get url
         var urlreporte = "";
         //download(mainWindow, urlreporte);
      }
 
-       else{console.log(arg);
-        // Enviar simple u complejo
-      //window.alert("holo");
-      axios.get('https://machinear.herokuapp.com/1')
-      .then(res => {
-      console.log(res.body.about);
-      });}
+    else{
+      console.log("entra el else");
+      axios.get('https://machinear.herokuapp.com/1').then(response => {console.log(response.link);}).catch(error => {console.log(error.message);});
+     }
       });
 
 

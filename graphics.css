@@ -1,0 +1,97 @@
+#titulo {
+    text-align: center;
+}
+
+#logoEAFIT {
+    
+}
+
+#expl {
+}
+
+#expl2 {
+}
+
+#expl3 {
+}
+
+#confirmador {
+
+}
+
+#comp {
+}
+
+#voltaje {
+    color: rgb(255, 255, 255);
+
+}
+
+#corriente {
+    color: rgb(255, 255, 255);
+}
+
+#y {
+    color: rgb(255, 255, 255);
+}
+
+#x {
+    color: rgb(255, 255, 255);
+}
+.logoEAFIT{
+    position: static;
+    left: 5%;
+}
+
+.parafo{
+
+    position: static;
+    left: 5%; 
+       
+    
+}
+
+.botconfirm{
+    position: static;
+    left: 8%;
+    
+}
+
+.datosdisplay{
+    position: static;
+    left: 8%;
+    width: 75%;
+    background-color: #00395b;
+    margin: 5px;
+    padding: 3px;
+}
+
+.LabelV {
+    position: static;
+    color: rgb(255, 255, 255);
+    margin: 3px;
+    padding: 5px;
+
+}
+
+.LabelC {
+    position: static;
+    color: rgb(255, 255, 255);
+    margin: 3px;
+    padding: 5px;
+
+}
+
+.LabelY {
+    position: static;
+    color: rgb(255, 255, 255);
+    margin: 3px;
+    padding: 5px;
+}
+
+.LabelX {
+    position: static;
+    color: rgb(255, 255, 255);
+    margin: 3px;
+    padding: 5px;
+}

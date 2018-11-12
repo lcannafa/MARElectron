@@ -1,42 +1,36 @@
   <!DOCTYPE html>
 <html>
   <head>
+    <link rel="stylesheet" href="graphics.css">
     <meta charset="UTF-8">
-    <title>TestPage</title>
+    <title>DescargarInformes</title>
+    <img class="logoEAFIT" src="logo.png" alt="Logo">
   </head>
-  <body>
-    <h1 id= "titulo">Informes Ruteadora</h1>
+  <body style="background-color:rgb(175, 175, 175)" >
+    <h1 id= "titulo"> Informes Ruteadora</h1>
+
+    <div class="datosdisplay">
+    <span class="LabelV"> Voltaje: </span>
+    <label id="voltaje">volt</label>
+    
+    <span class="LabelC"> Corriente:</span>
+    <label id="corriente">corriente:</label>
+
+    <span class="LabelY"> PosY:</span>
+    <label id="y">y:</label>
+
+    <span class="LabelX">PosX: </span>
+    <label id="x">x</label>
+    </div>
+
     <!-- All of the Node.js APIs are available in this renderer process. -->
-    <p id="expl">Tipos de reportes: Complejos y Sencillos</p>
-    <p id="expl2">Complejo : Contiene graficas y tablas con los datos de la ejecución</p>
-    <p id="expl3">Sencillo : Contiene graficas sobre la ejecución</p>
-    <button id="confirmador"> Descargar Reporte</button>
-    <input id="comp" type="checkbox" name="complejidad" value="Complejo"> Complejo<br>
+    <p id="expl"  class="parafo">Tipos de reportes: Complejos y Sencillos</p>
+    <p id="expl2" class="parafo">Complejo : Contiene graficas y tablas con los datos de la ejecución</p>
+    <p id="expl3" class="parafo">Sencillo : Contiene graficas sobre la ejecución</p>
+    <button id="confirmador" class="botconfirm"> Descargar Reporte</button>
+    <input id="comp" class="botconfirm" type="checkbox" name="complejidad" value="Complejo"> Complejo<br>
     
 
-       <div style="float:right">
-          <span class="firstLabel"> Voltaje: </span>
-          <label id="voltaje">volt</label>
-
-      </div>
-
-      <div style="float:right">
-          <span class="firstLabel"> Corriente:</span>
-          <label id="corriente">corriente:</label>
-
-      </div>
-
-      <div style="float:right">
-          <span class="firstLabel"> PosY:</span>
-          <label id="y">y:</label>
-
-      </div>
-
-      <div style="float:right">
-          <span class="firstLabel">PosX: </span>
-          <label id="x">x</label>
-
-      </div>
 
     <script>
       // You can also require other files to run in this process
