@@ -62,36 +62,36 @@
     left: 8%;
     width: 70%;
     background-color: #00395b;
-    margin: 5px;
-    padding: 3px;
+    margin: 2px;
+    padding: 2px;
 }
 
 .LabelV {
     position: static;
     color: rgb(255, 255, 255);
-    margin: 3px;
-    padding: 5px;
+    margin: 2px;
+    padding: 2px;
 
 }
 
 .LabelC {
     position: static;
     color: rgb(255, 255, 255);
-    margin: 3px;
-    padding: 5px;
+    margin: 2px;
+    padding: 2px;
 
 }
 
 .LabelY {
     position: static;
     color: rgb(255, 255, 255);
-    margin: 3px;
-    padding: 5px;
+    margin: 2px;
+    padding: 2px;
 }
 
 .LabelX {
     position: static;
     color: rgb(255, 255, 255);
-    margin: 3px;
-    padding: 5px;
+    margin: 2px;
+    padding: 2px;
 }

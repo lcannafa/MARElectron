@@ -13,53 +13,39 @@ const url = require('url')
 // Keep a global reference of the windows object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
 let mainWindow;
-let downloadWindow;
 
 
 function createWindow() {
     // Create the browser window.
-    mainWindow = new BrowserWindow({ width: 600, height: 600 });
+    mainWindow = new BrowserWindow({ width: 800, height: 600 });
     mainWindow.loadFile('index.html')
 
 
     // Attach event listener in order to get the style of graphics the user requires
     ipcMain.on('confirm', (event, arg) => {
         var tipodeInforme;
+        var urlreporte
         tipodeInforme = JSON.stringify(arg);
 
  
         if(tipodeInforme == "1"){
-    
-        //console.log("entra al 1");
-          // Enviar simple u complejo
-        axios.get('https://machinear.herokuapp.com/1')
+        axios.get('http://machinear.dis.eafit.edu.co/1')
         .then(res => {
-        console.log(res.about);
+        urlreporte = JSON.stringify(res.data.link);
+        console.log(urlreporte);
+        mainWindow.webContents.send('link', urlreporte);
         });
-    
-          // get url
-          //var urlreporte = JSON.stringify(res.link);
+        }
 
-       }
-
-       if(tipodeInforme == "0"){
-    
-        //console.log("entra al 0");
-        // Enviar simple u complejo
-        
-        axios.get('https://machinear.herokuapp.com/0')
+       if(tipodeInforme == "0"){    
+        axios.get('http://machinear.dis.eafit.edu.co/0')
         .then(res => {
-        console.log(res.data.about);
+        urlreporte = JSON.stringify(res.data.link);
+        console.log(urlreporte);
+        mainWindow.webContents.send('link', urlreporte);
         });
-        // get url
-        //var urlreporte = JSON.stringify(res.link);
-        
-     }
-     
-     downloadWindow = new BrowserWindow({ width: 800, height: 100 });
-     downloadWindow.loadFile('downloader.html')
-     //downloadWindow.webContents.send('link', urlreporte);
-      });
+        }
+     });
 
 
 

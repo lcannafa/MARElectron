@@ -29,6 +29,7 @@
     <p id="expl3" class="parafo">Sencillo : Contiene graficas sobre la ejecución</p>
     <button id="confirmador" class="botconfirm"> Descargar Reporte</button>
     <input id="comp" class="botconfirm" type="checkbox" name="complejidad" value="Complejo"> Complejo<br>
+    <textarea rows="4" cols="90" id="linkLabel" class="botconfirm"> AQUI VA EL LINK</textarea>
     
 
 
@@ -80,6 +81,11 @@ ipcRenderer.on('y', function (event,store) {
 ipcRenderer.on('x', function (event,store) {
 
     document.getElementById("x").innerHTML = store;
+});
+
+ipcRenderer.on('link', function (event,store) {
+
+document.getElementById("linkLabel").innerHTML = store;
 });
 </script>
 
